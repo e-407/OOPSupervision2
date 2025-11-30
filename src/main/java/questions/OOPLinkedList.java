@@ -2,7 +2,7 @@ package questions;
 
 import java.util.NoSuchElementException;
 
-public class OOPLinkedList {
+public class OOPLinkedList implements OOPList {
     private OOPLinkedListElement head;
 
     public OOPLinkedList() {
@@ -24,16 +24,11 @@ public class OOPLinkedList {
     public int get(int n) {
         OOPLinkedListElement current = head;
         for (int i = 0; i < n; i++) {
-            if (current == null) throw new NoSuchElementException(); // Or throw exception
+            if (current == null) throw new NoSuchElementException();
             current = current.getNext();
         }
         if (current == null) throw new NoSuchElementException();
         return current.getValue();
-    }
-
-    public int getHeadValue() {
-        if (head == null) throw new NoSuchElementException(); // Or throw exception
-        return head.getValue();
     }
 
     public int length() {
@@ -52,5 +47,10 @@ public class OOPLinkedList {
 
     protected void setHead(OOPLinkedListElement head) {
         this.head = head;
+    }
+
+    public int getHeadValue() {
+        if (head == null) throw new NoSuchElementException();
+        return head.getValue();
     }
 }
