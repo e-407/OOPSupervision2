@@ -2,7 +2,7 @@ package questions;
 
 import java.util.NoSuchElementException;
 
-public class OOPLinkedList implements OOPList {
+public class OOPLinkedList implements OOPList, Cloneable{
     private OOPLinkedListElement head;
 
     public OOPLinkedList() {
@@ -52,5 +52,24 @@ public class OOPLinkedList implements OOPList {
     public int getHeadValue() {
         if (head == null) throw new NoSuchElementException();
         return head.getValue();
+    }
+
+    @Override
+    public OOPLinkedList clone(){
+        OOPLinkedList clonedList = new OOPLinkedList();
+
+        if (head != null) {
+            clonedList.head = head.clone();
+            OOPLinkedListElement current = head.getNext();
+            OOPLinkedListElement currentClone = clonedList.head;
+
+            while (current != null) {
+                OOPLinkedListElement clonedNode = current.clone();
+                currentClone.setNext(clonedNode);
+                currentClone = clonedNode;
+                current = current.getNext();
+            }
+        }
+        return clonedList;
     }
 }

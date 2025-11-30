@@ -40,7 +40,7 @@ class OOPArrayListTest {
         }
 
         assertEquals(15, list.length());
-        assertEquals(14, list.get(14)); // Verify last element is correct
+        assertEquals(14, list.get(14));
     }
 
     @Test

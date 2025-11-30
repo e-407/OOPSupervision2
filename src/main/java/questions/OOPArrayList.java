@@ -2,10 +2,10 @@ package questions;
 
 public class OOPArrayList implements OOPList {
     private int[] data;
-    private int length; // Number of actual elements stored
+    private int length;
 
     public OOPArrayList() {
-        this.data = new int[10]; // Start with small capacity
+        this.data = new int[10];
         this.length = 0;
     }
 
@@ -27,7 +27,7 @@ public class OOPArrayList implements OOPList {
         if (length == 0) {
             return;
         }
-        length--; // Old value is inaccessible so is essentially removed
+        length--;
     }
 
     @Override
